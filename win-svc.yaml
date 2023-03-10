@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: "win-svc"
+  namespace: vm-workloads
+spec:
+  type: LoadBalancer
+  selector:
+    kubevirt/vm: win10
+  ports:
+  - name: vnc
+    port: 5900
+    protocol: TCP
+    targetPort: 5900
+  - name: rdp
+    port: 3389
+    protocol: TCP
+    targetPort: 3389
+  - name: imcp-tcp
+    port: 7
+    protocol: TCP
+    targetPort: 7
