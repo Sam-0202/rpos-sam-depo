@@ -1,0 +1,11 @@
+apiVersion: vm.cluster.gke.io/v1
+kind: VirtualMachineDisk
+metadata:
+  name: win-boot-dv
+  namespace: vm-workloads
+spec:
+  size: 50Gi
+  source:
+    gcs:
+      url: gs://vm-isos/win10.raw
+      secretRef: my-gcs-secret
